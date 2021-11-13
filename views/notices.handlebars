@@ -1,0 +1,81 @@
+<div class="container">
+    <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>查看通知</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="http://localhost:3000/">主页</a></li>
+                                    <li class="breadcrumb-item active">查看通知</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
+                </section>
+
+
+    <section class="content" >
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">消息列表</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="折叠">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          #
+                      </th>
+                      <th style="width: 40%">
+                          发送方
+                      </th>
+                      <th style="width: 40%">
+                          消息主题
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {{#each notices}}
+                  <tr>
+                      <td>
+                          {{@index}}
+                      </td>
+                      <td>
+                          <a>
+                              {{this.email}}
+                          </a>
+                      </td>
+                      <td>
+                          <a>
+                              {{this.topic}}
+                          </a>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="http://localhost:3000/notice?topic={{this.topic}}">
+                              <i class="fas fa-folder">
+                              </i>
+                              查看
+                          </a>
+                      </td>
+                  </tr>
+                  {{/each}}
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </section>
+    <!-- /.content -->
+</div>

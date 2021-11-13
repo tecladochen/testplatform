@@ -1,0 +1,31 @@
+<div class="col-md-12" style="padding-top: 20px">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">发送通知</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <form action="http://localhost:3000/noticeSend" method="post" onsubmit="return confirm('你确定要发送消息吗?');">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="收件人：" name="accept" value="{{email}}">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="标题：" name="topic" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="compose-textarea" class="form-control" style="height: 300px;resize: none;" placeholder="通知内容" name="content" required></textarea>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> 发送</button>
+                        </div>
+                        <a href="http://localhost:3000/noticeList"><button type="button" class="btn btn-default"><i class="fas fa-times"></i> 返回</button></a>
+                    </div>
+                    <!-- /.card-footer -->
+                    </form>
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->

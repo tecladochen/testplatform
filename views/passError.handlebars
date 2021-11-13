@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 离线 Google 字体: Source Sans Pro -->
+    <link rel="stylesheet" href="./public/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="./public/css/all.min.css">
+    <!-- 主题样式 -->
+    <link rel="stylesheet" href="./public/css/adminlte.min.css">
+    <title>test</title>
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="../../index2.html" class="h1"><b>Test</b>Flatform</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">帐户登录</p>
+
+                <form action="http://localhost:3000/login" method="post">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="邮箱" name="email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="密码错误，请重新输入" name="password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 ">
+                            <button type="submit" class="btn btn-primary btn-block">登录</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <div class="row" style="margin-top: 10px;">
+                    <p class="mb-1 col-6">
+                        <a href="forgot-password.html">忘记密码</a>
+                    </p>
+                    <p class="mb-0 col-6 text-right">
+                        <a href="http://localhost:3000/register" class="text-right">注册账户</a>
+                    </p>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+
+
+    <!-- 载入脚本 -->
+
+    <!-- jQuery -->
+    <script src="./public/js/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="./public/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="./public/js/adminlte.min.js"></script>
+
+</body>
+
+</html>

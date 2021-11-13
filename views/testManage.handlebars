@@ -1,0 +1,66 @@
+<section class="content" style="padding-top: 20px;">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">试题管理</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="折叠">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          #
+                      </th>
+                      <th style="width: 40%">
+                          试题名称
+                      </th>
+                      <th style="width: 40%">
+                          试题描述
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {{#each tests}}
+                  <tr>
+                      <td>
+                          {{@index}}
+                      </td>
+                      <td>
+                          <a>
+                              {{this.title}}
+                          </a>
+                      </td>
+                      <td>
+                          <a>
+                              {{this.text}}
+                          </a>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="http://localhost:3000/testShow?title={{this.title}}">
+                              <i class="fas fa-folder">
+                              </i>
+                              查看
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="http://localhost:3000/testDelete?title={{this.title}}" onclick="return confirm('你确定要删除试题集吗?')">
+                              <i class="fas fa-trash">
+                              </i>
+                              删除
+                          </a>
+                      </td>
+                  </tr>
+                  {{/each}}
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </section>
+    <!-- /.content -->

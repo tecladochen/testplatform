@@ -1,0 +1,62 @@
+<section class="content" style="padding-top: 20px;">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">用户管理</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="折叠">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          #
+                      </th>
+                      <th style="width: 35%">
+                          用户邮箱
+                      </th>
+                      <th style="width: 25%">
+                          用户密码
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {{#each users}}
+                  <tr>
+                      <td>
+                          {{@index}}
+                      </td>
+                      <td>
+                          {{this.email}}
+                      </td>
+                      <td>
+                          {{this.password}}
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-info btn-sm" href="http://localhost:3000/userUpdate?email={{this.email}}">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              编辑
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="http://localhost:3000/userDelete?email={{this.email}}" onclick="return confirm('你确定要删除用户信息吗?')">
+                              <i class="fas fa-trash">
+                              </i>
+                              删除
+                          </a>
+                      </td>
+                  </tr>
+                  {{/each}}
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </section>
+    <!-- /.content -->

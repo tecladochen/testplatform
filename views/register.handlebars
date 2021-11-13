@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 离线 Google 字体: Source Sans Pro -->
+    <link rel="stylesheet" href="../public/css/google.css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="../public/css/all.min.css">
+    <!-- 主题样式 -->
+    <link rel="stylesheet" href="../public/css/adminlte.min.css">
+    <title>TestFlatform</title>
+</head>
+
+<body class="hold-transition register-page">
+    <div class="register-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="/" class="h1"><b>Test</b>flatform</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">注册账户</p>
+
+                <form action="http://localhost:3000/register" method="post">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="你的邮箱" name="email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="密码" name="password" id="password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="再次输入密码" name="password1" id="password1" onblur="validate()">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="check">
+                        
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block" id="submit">注册</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+                <div style="margin-top: 10px;"><a href="http://localhost:3000/login" class="text-center"  >我已经有账号了</a></div>
+
+            </div>
+            <!-- /.form-box -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+    <script>
+        function validate(){
+            const password = document.getElementById('password').value;
+            const password1 = document.getElementById('password1').value;
+            if(password == password1){
+                document.getElementById('check').innerHTML = `<div class="alert alert-success alert-dismissible">
+                                                                    <i class="icon fas fa-check"></i>俩次输入密码一致！
+                                                                 </div>`;
+                document.getElementById('submit').disabled = false;
+            }else{
+                document.getElementById('check').innerHTML = `<div class="alert alert-warning alert-dismissible">
+                                                                     <i class="icon fas fa-exclamation-triangle"></i>俩次输入密码不一致！
+                                                               </div>`;
+                document.getElementById('submit').disabled = true;
+            }
+        }
+    </script>
+
+    <!-- 载入脚本 -->
+
+    <!-- jQuery -->
+    <script src="../public/js/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../public/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../public/js/adminlte.min.js"></script>
+</body>
+
+</html>

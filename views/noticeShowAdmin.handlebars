@@ -1,0 +1,40 @@
+ <section class="content" style="padding-top: 20px;">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-primary card-outline">
+                                    <div class="card-header">
+                                        <h3 class="card-title">查看通知</h3>
+                                    </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body p-0">
+                                        <div class="mailbox-read-info">
+                                            <h5>{{notice.topic}}</h5>
+                                            <h6>来自： {{notice.email}}</h6>
+                                        </div>
+                                        <!-- /.mailbox-read-info -->
+                                        <div class="mailbox-read-message">
+                                           {{notice.content}}
+                                        </div>
+                                        <!-- /.mailbox-read-message -->
+                                    </div>
+                                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                        <div class="float-right">
+                                            <a href="http://localhost:3000/reply?email={{notice.email}}">
+                                                <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> 回复</button>
+                                            </a>
+                                        </div>
+                                       <a href="http://localhost:3000/noticeList">
+                                            <button type="button" class="btn btn-default"><i class="far"></i> 返回</button>
+                                       </a>
+                                    </div>
+                                    <!-- /.card-footer -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->

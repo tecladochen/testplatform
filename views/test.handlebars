@@ -1,0 +1,124 @@
+ <div class="container">
+
+
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>{{test.title}}</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">主页</a></li>
+                            <li class="breadcrumb-item active">{{test.title}}</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <!-- 主体内容 -->
+        <section class="content">
+            <form action="http://localhost:3000/submit?title={{test.title}}" method="post" onsubmit="return confirm('你确定要提交吗?');">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-cyan">
+                            <div class="card-header">
+                                <h3 class="card-title">考试倒计时: <span id="timer"></span></h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="折叠">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                {{#each test.content}}
+                                <div class="row">
+                                    <div class="form-group col-12" style="margin-bottom: 25px;">
+                                        <div class="input-group mb-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">题目</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="{{this.question}}" readonly>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px;">
+                                            <div class="input-group mb-6 col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">选项A</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{this.selectA}}" readonly>
+                                            </div>
+                                            <div class="input-group mb-6 col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">选项B</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{this.selectB}}" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 10px;">
+                                            <div class="input-group mb-6 col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">选项C</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{this.selectC}}" readonly>
+                                            </div>
+                                            <div class="input-group mb-6 col-6">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">选项D</span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{this.selectD}}" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mb-6 col-2" style="margin-top: 10px;">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">你的答案</span>
+                                            </div>
+                                            <input type="text" class="form-control" value="" name="answer">
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer">
+                                请检查所有题目已填写，请在倒计时结束前提交!
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="http://localhost:3000/" class="btn btn-secondary">取消</a>
+                        <input type="submit" value="保存提交" class="btn btn-success float-right">
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- /.content -->
+
+    </div>
+
+    <script>
+        {{!-- 设置最长时间15分钟 --}}
+        let maxtime = 15 * 60;
+        function CountDown(){
+            if(maxtime >= 0){
+                minutes = Math.floor(maxtime / 60);
+                seconds = Math.floor(maxtime % 60);
+                msg = `${minutes}分${seconds}秒`;
+                document.getElementById('timer').innerHTML = msg;
+                if(maxtime == 3 * 60) alert("距离考试结束还有3分钟！");
+                --maxtime;
+            }else{
+                clearInterval(timer);
+                alert("时间到！请交卷！");
+                document.getElementsByName('answer').forEach(function(elem){
+                    elem.setAttribute('readonly', 'readonly');
+                });
+            }
+        }
+        const timer = setInterval(CountDown, 1000);
+    </script>

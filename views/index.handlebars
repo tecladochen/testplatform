@@ -1,0 +1,46 @@
+<div class="content-header">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">试题列表</h1>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">主页</a></li>
+                </ol>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- 主体内容  -->
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                {{#each tests}}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.title}}</h5>
+
+                        <p class="card-text">
+                            {{this.text}}
+                        </p>
+
+                        <a href="http://localhost:3000/test?title={{this.title}}" class="card-link">参与测试</a>
+                        <a href="http://localhost:3000/testAnalyze?title={{this.title}}" class="card-link">查看解析</a>
+                    </div>
+                </div>
+                {{/each}}
+                <!-- /.card -->
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content -->
